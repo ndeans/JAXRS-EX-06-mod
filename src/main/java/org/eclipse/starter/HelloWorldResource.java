@@ -1,4 +1,4 @@
-package us.deans.jakarta.jakarta.hello;
+package org.eclipse.starter;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

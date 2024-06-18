@@ -1,4 +1,4 @@
-package us.deans.jakarta.jakarta.hello;
+package org.eclipse.starter;
 
 public class Hello {
 
