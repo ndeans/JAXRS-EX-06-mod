@@ -1,6 +1,6 @@
 package us.deans.opp.jakarta;
 
-public class OppPostList {
+public class OppPost {
 
     private String id;
     private String author;
@@ -56,4 +56,10 @@ public class OppPostList {
     public void setText(String text) {
         this.text = text;
     }
+
+    public String printRecord() {
+        return "id: " + this.id + ", author: " + this.author + ", time: " + this.head + ", text: " + this.text + ", link: " + this.link;
+    }
+
+
 }

@@ -2,7 +2,6 @@ package us.deans.opp.jakarta;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,14 +13,8 @@ public class OppResource {
     @GET
     @Produces({ MediaType.APPLICATION_JSON })
     public OppVersion getVersion () {
-        return new OppVersion("1.0.0");
+        String version = "1.0.1";
+        logger.info("version: " + version);
+        return new OppVersion(version);
     }
-
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response setPostList(OppPostList postList) {
-        logger.info("Hellooo!");
-        return Response.ok("Inserted...").build();
-    }
-
 }
