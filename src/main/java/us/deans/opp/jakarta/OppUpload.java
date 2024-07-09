@@ -20,6 +20,7 @@ public class OppUpload {
     public Response setPostList(List<OppPost> postList) {
         OppProcessor processor = new OppProcessor(postList);
         processor.printDataToLog();
+        processor.uploadToDB();
         String msg = "inserting " + postList.size() + " post records...";
         logger.info(msg);
         return Response.ok(msg).build();
