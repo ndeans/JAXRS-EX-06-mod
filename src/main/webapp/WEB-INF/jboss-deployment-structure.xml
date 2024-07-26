@@ -5,6 +5,7 @@
         </exclude-subsystems> -->
         <dependencies>
             <module name="org.slf4j"/>
+            <module name="com.mongodb"/>
         </dependencies>
     </deployment>
 </jboss-deployment-structure>

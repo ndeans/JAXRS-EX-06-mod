@@ -7,31 +7,33 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class OppProcessor {
+public class OppProcessor_Mongo_Wildfly implements Procesor{
 
     private final List<OppPost> postList;
     Logger logger = LoggerFactory.getLogger(OppUpload.class);
-    private final String uri = "mongodb+srv://ncdeans:Qelar9E8DfXgZrrs@cluster0.ueelqzu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+    private final String cloud_db = "mongodb+srv://ncdeans:Qelar9E8DfXgZrrs@cluster0.ueelqzu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+    private final String local_db = "mongodb://localhost:27017";
 
-    public OppProcessor(List<OppPost> postList) {
+    public OppProcessor_Mongo_Wildfly(List<OppPost> postList) {
         this.postList = postList;
         logger.info("instantiating processor...");
     }
 
-    public void printDataToLog() {
+    @Override
+    public void log() {
         for (OppPost post: this.postList) {
             logger.info("record: " + post.printRecord() + "\n");
         }
     }
 
-    public void uploadToDB() {
+    @Override
+    public void persist() {
 
-        try (MongoClient mongoClient = MongoClients.create(uri)) {
+        try (MongoClient mongoClient = MongoClients.create(local_db)) {
             MongoDatabase database = mongoClient.getDatabase("Opp-1");
             MongoCollection<Document> collection = database.getCollection("post-text");
 

@@ -18,9 +18,9 @@ public class OppUpload {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response setPostList(List<OppPost> postList) {
-        OppProcessor processor = new OppProcessor(postList);
-        processor.printDataToLog();
-        processor.uploadToDB();
+        OppProcessor_Mongo_Wildfly processor = new OppProcessor_Mongo_Wildfly(postList);
+        processor.log();
+        processor.persist();
         String msg = "inserting " + postList.size() + " post records...";
         logger.info(msg);
         return Response.ok(msg).build();
