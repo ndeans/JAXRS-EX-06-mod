@@ -34,8 +34,8 @@ public class OppProcessor_Mongo_Wildfly implements Procesor{
     public void persist() {
 
         try (MongoClient mongoClient = MongoClients.create(local_db)) {
-            MongoDatabase database = mongoClient.getDatabase("Opp-1");
-            MongoCollection<Document> collection = database.getCollection("post-text");
+            MongoDatabase database = mongoClient.getDatabase("Raven-1");
+            MongoCollection<Document> collection = database.getCollection("posts");
 
             List<Document> postData = new ArrayList<>();
 

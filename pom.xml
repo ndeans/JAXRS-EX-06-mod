@@ -19,6 +19,7 @@
 		<jakartaee-api.version>10.0.0</jakartaee-api.version>
 		<compiler-plugin.version>3.11.0</compiler-plugin.version>
 		<war-plugin.version>3.4.0</war-plugin.version>
+		<mongodb.driver.version>5.1.1</mongodb.driver.version>
 	</properties>
 
 	<dependencies>
@@ -37,7 +38,7 @@
 		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongodb-driver-sync</artifactId>
-			<version>5.1.1</version>
+			<version>${mongodb.driver.version}</version>
 		</dependency>
 	</dependencies>
 	<build>
